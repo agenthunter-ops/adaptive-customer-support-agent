@@ -122,50 +122,54 @@ Development```Deployment:
 ```
 
 ## 📁 Project Structure```
-adaptive```stomer-support-agent/
-├── 📁 src/                              # ```ource code directory```  ├── 📁 agents/                       # ```I agent implementations
-│   │   ├── intent_classifier.py         # ```ntent classification logic
-│   │   ├──```nversation_agent.py        # 💬 Main```nversation handler
-│   │   ├──```calation_agent.py          # ```uman escalation logic
-│   │   ``` rag_agent.py                 # 🔍```G implementation
-│   ├── ```outing/                      # ```Request routing logic
-│   │   ├──```rkflow_router.py           # ```ain workflow routing
-│   │   └── intent```uter.py             # 🎯 Intent-based routing
-│   ├── 📁 core/                         ```️ Core utilities
-│   │   ├──```nfig.py                    # 🔧 Configuration management
-│   │   ├── database.py                  # ```MongoDB operations
-│   │   ├```vector_store.py              # 📊 ```SS vector operations
-│   │   ├──```m_client.py                # ```penAI integration
-│   │   └── memory```                    # 💾 ```ory management
-│   ├── 📁 channels/                     # 📡 ```r interface channels
-│   │   ├```fastapi_channel.py           # 🚀 FastAPI endpoints```  │   └── streamlit_channel.py         # 🎨 Stream``` UI integration
-│   ├── 📁 tools/                        # ```Domain-specific tools
-│   │   ``` banking_tools.py             # 🏦```nking operations
-│   │   ├──```owledge_base.py            # 📚 Knowledge retri```l
-│   │   └── customer```ols.py            # ```ustomer data```ols
-│   └── 📁 data/                ```      # 📋 Data files```      ├── banking```tents.json         ``` Intent definitions
-│       ├── sample```nking_data.json     # ```ample customer data
-│       └── knowledge```se.json          # 📖```owledge articles
-├── 📁 tests```                          # 🧪 ```prehensive test suite
-│   ├── test```ents.py                   # ```gent behavior tests
-│   ├── test```uting.py                  # 🛣```outing logic tests
-│   ├── test```ols.py                    # ```Tools functionality tests
-│   └── test```tegration.py              ``` End-to-end integration tests
-├── 📁 docker```                         # 🐳 Docker configuration
+adaptive-customer-support-agent/
+├── 📁 src/                              # 🔧 Source code directory
+│   ├── 📁 agents/                       # 🤖 AI agent implementations
+│   │   ├── intent_classifier.py         # 🎯 Intent classification logic
+│   │   ├── conversation_agent.py        # 💬 Main conversation handler
+│   │   ├── escalation_agent.py          # 🚨 Human escalation logic
+│   │   └── rag_agent.py                 # 🔍 RAG implementation
+│   ├── 📁 routing/                      # 🛣️ Request routing logic
+│   │   ├── workflow_router.py           # 🔄 Main workflow routing
+│   │   └── intent_router.py             # 🎯 Intent-based routing
+│   ├── 📁 core/                         # ⚙️ Core utilities
+│   │   ├── config.py                    # 🔧 Configuration management
+│   │   ├── database.py                  # 🗄️ MongoDB operations
+│   │   ├── vector_store.py              # 📊 FAISS vector operations
+│   │   ├── llm_client.py                # 🧠 OpenAI integration
+│   │   └── memory.py                    # 💾 Memory management
+│   ├── 📁 channels/                     # 📡 User interface channels
+│   │   ├── fastapi_channel.py           # 🚀 FastAPI endpoints
+│   │   └── streamlit_channel.py         # 🎨 Streamlit UI integration
+│   ├── 📁 tools/                        # 🛠️ Domain-specific tools
+│   │   ├── banking_tools.py             # 🏦 Banking operations
+│   │   ├── knowledge_base.py            # 📚 Knowledge retrieval
+│   │   └── customer_tools.py            # 👤 Customer data tools
+│   └── 📁 data/                         # 📋 Data files
+│       ├── banking_intents.json         # 🎯 Intent definitions
+│       ├── sample_banking_data.json     # 📊 Sample customer data
+│       └── knowledge_base.json          # 📖 Knowledge articles
+├── 📁 tests/                            # 🧪 Comprehensive test suite
+│   ├── test_agents.py                   # 🤖 Agent behavior tests
+│   ├── test_routing.py                  # 🛣️ Routing logic tests
+│   ├── test_tools.py                    # 🛠️ Tools functionality tests
+│   └── test_integration.py              # 🔗 End-to-end integration tests
+├── 📁 docker/                           # 🐳 Docker configuration
 │   ├── Dockerfile                       # 📦 Container definition
-│   ├── docker-compose.yml               # 🚢```lti-container setup
-│   └── requirements.txt                 # 📋 Container```pendencies
-├── 📁 ui/                               # 🎨 User```terface components
-│   ├── stream```_app.py                 # ```Streamlit application
-│   └── 📁 static/                       # ```tatic assets
-├── 📁 docs/                ```          # 📚 Documentation
-│   ├── ARCHITECTURE.md                  # ```System architecture guide```  ├── DEPLOYMENT```                    # 🚀 ```loyment instructions
-│   └── API```CS.md                      # ```PI documentation
-├── main.py                              # ```pplication entry point
-├── requirements.txt```                  # 📋 Python dependencies
-├── .env.example                         # 🔧 Environment template```─ azure-pipelines.yml                 # ```I/CD configuration
-└── README.md                            ``` This file
-```
+│   ├── docker-compose.yml               # 🚢 Multi-container setup
+│   └── requirements.txt                 # 📋 Container dependencies
+├── 📁 ui/                               # 🎨 User interface components
+│   ├── streamlit_app.py                 # 🖥️ Streamlit application
+│   └── 📁 static/                       # 🎨 Static assets
+├── 📁 docs/                             # 📚 Documentation
+│   ├── ARCHITECTURE.md                  # 🏗️ System architecture guide
+│   ├── DEPLOYMENT.md                    # 🚀 Deployment instructions
+│   └── API_DOCS.md                      # 📡 API documentation
+├── main.py                              # 🎯 Application entry point
+├── requirements.txt                     # 📋 Python dependencies
+├── .env.example                         # 🔧 Environment template
+├── azure-pipelines.yml                 # 🔄 CI/CD configuration
+└── README.md                            # 📖 This file
 
 ## ⚡ Quick Start### 🚀 **1-Minute Demo Setup**```bash
 # Clone the```pository
