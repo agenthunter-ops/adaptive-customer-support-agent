@@ -122,54 +122,25 @@ Development```Deployment:
 ```
 
 ## 📁 Project Structure```
-adaptive-customer-support-agent/
-├── 📁 src/                              # 🔧 Source code directory
-│   ├── 📁 agents/                       # 🤖 AI agent implementations
-│   │   ├── intent_classifier.py         # 🎯 Intent classification logic
-│   │   ├── conversation_agent.py        # 💬 Main conversation handler
-│   │   ├── escalation_agent.py          # 🚨 Human escalation logic
-│   │   └── rag_agent.py                 # 🔍 RAG implementation
-│   ├── 📁 routing/                      # 🛣️ Request routing logic
-│   │   ├── workflow_router.py           # 🔄 Main workflow routing
-│   │   └── intent_router.py             # 🎯 Intent-based routing
-│   ├── 📁 core/                         # ⚙️ Core utilities
-│   │   ├── config.py                    # 🔧 Configuration management
-│   │   ├── database.py                  # 🗄️ MongoDB operations
-│   │   ├── vector_store.py              # 📊 FAISS vector operations
-│   │   ├── llm_client.py                # 🧠 OpenAI integration
-│   │   └── memory.py                    # 💾 Memory management
-│   ├── 📁 channels/                     # 📡 User interface channels
-│   │   ├── fastapi_channel.py           # 🚀 FastAPI endpoints
-│   │   └── streamlit_channel.py         # 🎨 Streamlit UI integration
-│   ├── 📁 tools/                        # 🛠️ Domain-specific tools
-│   │   ├── banking_tools.py             # 🏦 Banking operations
-│   │   ├── knowledge_base.py            # 📚 Knowledge retrieval
-│   │   └── customer_tools.py            # 👤 Customer data tools
-│   └── 📁 data/                         # 📋 Data files
-│       ├── banking_intents.json         # 🎯 Intent definitions
-│       ├── sample_banking_data.json     # 📊 Sample customer data
-│       └── knowledge_base.json          # 📖 Knowledge articles
-├── 📁 tests/                            # 🧪 Comprehensive test suite
-│   ├── test_agents.py                   # 🤖 Agent behavior tests
-│   ├── test_routing.py                  # 🛣️ Routing logic tests
-│   ├── test_tools.py                    # 🛠️ Tools functionality tests
-│   └── test_integration.py              # 🔗 End-to-end integration tests
-├── 📁 docker/                           # 🐳 Docker configuration
-│   ├── Dockerfile                       # 📦 Container definition
-│   ├── docker-compose.yml               # 🚢 Multi-container setup
-│   └── requirements.txt                 # 📋 Container dependencies
-├── 📁 ui/                               # 🎨 User interface components
-│   ├── streamlit_app.py                 # 🖥️ Streamlit application
-│   └── 📁 static/                       # 🎨 Static assets
-├── 📁 docs/                             # 📚 Documentation
-│   ├── ARCHITECTURE.md                  # 🏗️ System architecture guide
-│   ├── DEPLOYMENT.md                    # 🚀 Deployment instructions
-│   └── API_DOCS.md                      # 📡 API documentation
-├── main.py                              # 🎯 Application entry point
-├── requirements.txt                     # 📋 Python dependencies
-├── .env.example                         # 🔧 Environment template
-├── azure-pipelines.yml                 # 🔄 CI/CD configuration
-└── README.md                            # 📖 This file
+📂 adaptive-customer-support-agent/
+├── src/                              # Source code directory  
+│   ├── 🤖 agents/                       # AI agent implementations  
+│   │   ├── 🎯 intent_classifier.py      # Intent classification logic  
+│   │   ├── 💬 conversation_agent.py     # Main conversation handler  
+│   │   └── 🔍 rag_agent.py              # RAG implementation  
+│   ├── 🛣️ routing/                      # Workflow routing logic  
+│   ├── ⚙️ core/                         # Shared utilities/configurations  
+│   ├── 📡 channels/                     # User interface channels  
+│   ├── 🛠️ tools/                        # Domain-specific tools  
+│   └── 📋 data/                         # Data files (intents, knowledge base)  
+├── 🧪 tests/                            # Comprehensive test suite  
+├── 🐳 docker/                           # Docker configuration  
+├── 🎨 ui/                               # User interface components  
+├── 📚 docs/                             # Documentation  
+├── 🎯 main.py                           # Application entry point  
+├── 📋 requirements.txt                  # Python dependencies  
+├── 🔧 .env.example                      # Environment template  
+└── 📖 README.md                         # Project README  
 
 ## ⚡ Quick Start### 🚀 **1-Minute Demo Setup**```bash
 # Clone the```pository
