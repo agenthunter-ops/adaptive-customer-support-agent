@@ -1,6 +1,6 @@
-# 🤖 Adaptive Customer Support Agent – Ultimate Comprehensive README
+# 🤖 Adaptive Customer Support Agent
 
-A **production-ready**, enterprise-grade AI platform delivering **contextual, 24/7 banking support**. Combining LangChain-powered agent workflows Retrieval-Augmented Generation (RAG), and GPT-4 reasoning to resolve **23+ specialized banking intents** in under 800 ms median latency, with seamless human escalation when needed. This README dives into every aspect of setup, usage, architecture, and contribution to ensure you have all the information in one place.
+A **production-ready**, enterprise-grade AI platform delivering **contextual, 24/7 banking support**. Combining LangChain-powered agent workflows, Retrieval-Augmented Generation (RAG), and GPT-4 reasoning to resolve **23+ specialised banking intents** in under 800 ms median latency, with seamless human escalation when needed. This README dives into every aspect of setup, usage, architecture, and contribution to ensure you have all the information in one place.
 
 ## 📋 Table of Contents
 
@@ -34,7 +34,7 @@ Our Adaptive Customer Support Agent solves these by:
     C[Streamlit Demo] -->|WebSocket| B
   end
 
-  subgraph Core Agents
+  Subgraph Core Agents
     B --> D{Intent Classifier}
     D --> E[RAG Retriever]
     E --> F[GPT-4 Responder]
@@ -43,7 +43,7 @@ Our Adaptive Customer Support Agent solves these by:
     G -- No  --> I[Return Reply]
   end
 
-  subgraph Data Stores
+  Subgraph Data Stores
     J[(MongoDB)]
     K[(Redis Cache)]
     L[(FAISS / Chroma Vector DB)]
@@ -148,7 +148,7 @@ adaptive-customer-support-agent/
   Aim: **≥ 90%** overall coverage.  
 - **Performance**:  
   - Concurrency tests sending 100+ parallel chat requests.  
-  - Latency benchmarks under 2 s for 99% of requests.  
+  - Latency benchmarks under 2s for 99% of requests.  
 - **CI Pipeline**:  
   - **Stages**: Lint → Unit Tests → Integration Tests → Coverage → Docker Build → Deploy  
   - **Matrix**: Python 3.11 & 3.12 on Ubuntu latest  
@@ -164,20 +164,20 @@ adaptive-customer-support-agent/
 | **GET**  `/api/v1/escalations`  | Tickets| List open/resolved escalation tickets.                     |
 | **GET**  `/metrics`             | Metrics| Prometheus-style metrics: QPS, latency, cache hit rate.    |
 
-_All endpoints support `Authorization: Bearer ` if auth enabled._
+_All endpoints support `Authorisation: Bearer ` if auth is enabled._
 
 ## 📈 Observability & Monitoring
 
 - **LangSmith**:  
   - Trace all LangChain calls: classification, retrieval, generation.  
-  - Dashboards for token usage, retrieval latency, LLM response quality.  
+  - Dashboards for token usage, retrieval latency, and LLM response quality.  
 
 - **Prometheus & Grafana**:  
   - Expose `/metrics` for QPS, P95/P99 latencies, error rates.  
-  - Dashboards for active sessions, escalation rates, cache-hit ratios.  
+  - Dashboards for active sessions, escalation rates, and cache-hit ratios.  
 
 - **Alerting**:  
-  - Webhooks or email if escalation rate > 15%.  
+  - Webhooks or email if the escalation rate > 15%.  
   - Alerts if GPT-4 errors exceed 2%.  
 
 ## 🚀 Deployment Recipes
@@ -205,7 +205,7 @@ spec:
     spec:
       containers:
       - name: app
-        image: your-registry/adaptive-support:latest
+        image: your-registry/adaptive-support: latest
         envFrom: 
           - secretRef: { name: support-secrets }
         ports:
@@ -268,7 +268,7 @@ We welcome contributions from developers, AI researchers, and banking experts:
 
 3. **Commit & PR**  
    ```bash
-   git add .
+   git add.
    git commit -m "feat: description of your feature"
    git push origin feature/your-feature
    ```
@@ -281,5 +281,3 @@ We welcome contributions from developers, AI researchers, and banking experts:
 **MIT License** – free for personal and commercial use.  
 See [LICENSE](LICENSE) for full text.
 
-> Built with ❤️ by the Adaptive Customer Support Agent Team.  
-> Empowering financial institutions with AI-driven customer support!
