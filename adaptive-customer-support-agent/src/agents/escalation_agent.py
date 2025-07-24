@@ -9,6 +9,7 @@ You can replace this with:
 import logging
 import uuid
 from datetime import datetime
+from src.core.database import db
 import re
 
 logger = logging.getLogger(__name__)
@@ -35,11 +36,25 @@ class EscalationAgent:
 
     async def create_ticket(self, session_id: str, user_message: str) -> str:
         """
-        Stores ticket stub into Mongo (not shown here; replace with API call).
-        Returns ticket ID string.
+        Stores escalation ticket into MongoDB and returns a ticket ID.
         """
+        import uuid
+        from datetime import datetime
+
         ticket_id = f"TCK-{uuid.uuid4().hex[:8].upper()}"
-        logger.info("Escalation ticket %s created for session %s | msg=%s",
-                    ticket_id, session_id, user_message[:50])
-        # TODO: persist ticket to `db.tickets.insert_one({...})`
+
+        ticket_doc = {
+            "ticket_id": ticket_id,
+            "session_id": session_id,
+            "user_message": user_message,
+            "status": "open",
+            "created_at": datetime.utcnow(),
+            "updated_at": datetime.utcnow(),
+            # Add more fields as needed (e.g., 'intent', 'escalation_reason', etc.)
+        }
+
+        # Save the ticket to the MongoDB collection 'tickets'
+        result = await db.tickets.insert_one(ticket_doc)
+        # Optionally, check result.inserted_id for success
+
         return ticket_id
