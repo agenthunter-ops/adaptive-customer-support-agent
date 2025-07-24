@@ -1,0 +1,32 @@
+# Core frameworks
+langchain>=0.2.0
+langgraph>=0.0.46
+openai>=1.30.1
+
+# RAG & vector search
+faiss-cpu>=1.8.0
+chromadb>=0.5.2      # optional – choose FAISS **or** Chroma
+sentence-transformers>=2.7.0
+
+# Web API & real-time comms
+fastapi>=0.111.0
+uvicorn[standard]>=0.29.0
+python-multipart>=0.0.9   # file uploads
+
+# Async utilities
+asyncio ; python_version>="3.11"
+
+# Persistence
+pymongo[srv]>=4.7.0
+redis>=4.2.0
+
+# DevOps & observability
+langsmith>=0.1.28
+
+# UI
+streamlit>=1.35.0
+
+# Testing
+pytest>=8.2.0
+pytest-asyncio>=0.23.7
+pytest-mock>=3.14.0

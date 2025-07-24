@@ -1,0 +1,23 @@
+{
+    "account_balance": [
+      "What is my current balance?",
+      "How much money do I have left?"
+    ],
+    "recent_transactions": [
+      "Show me my last few transactions",
+      "I need the latest withdrawals"
+    ],
+    "card_block": [
+      "Block my debit card immediately",
+      "My card was stolen – freeze it"
+    ],
+    "loan_info": [
+      "How much is left on my car loan?",
+      "What's the interest rate on my mortgage?"
+    ],
+    "fraud_report": [
+      "I see an unauthorized transaction",
+      "I think I'm a victim of fraud"
+    ]
+  }
+  

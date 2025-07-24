@@ -1,0 +1,44 @@
+trigger:
+  branches:
+    include: [main]
+
+variables:
+  pythonVersion: "3.11"
+
+stages:
+- stage: Test
+  jobs:
+  - job: RunPytest
+    pool:
+      vmImage: "ubuntu-latest"
+    steps:
+      - task: UsePythonVersion@0
+        inputs:
+          versionSpec: $(pythonVersion)
+      - script: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pytest -q
+        displayName: "Install & Test"
+
+- stage: Build
+  dependsOn: Test
+  jobs:
+  - job: BuildDocker
+    pool:
+      vmImage: "ubuntu-latest"
+    steps:
+      - script: |
+          docker build -f docker/Dockerfile -t adaptive-support:$(Build.BuildId) .
+        displayName: "Docker build"
+
+- stage: Deploy
+  dependsOn: Build
+  jobs:
+  - deployment: DeployToAzure
+    environment: "production"
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+            - bash: echo "Deploy via Azure Container Apps / AKS ..."
